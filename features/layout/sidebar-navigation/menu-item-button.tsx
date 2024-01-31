@@ -9,6 +9,7 @@ type MenuItemProps = {
   iconSrc: string;
   onClick: () => void;
   isCollapsed: boolean;
+  email?: string;
 };
 
 export function MenuItemButton({
@@ -17,14 +18,28 @@ export function MenuItemButton({
   onClick,
   iconSrc,
   isCollapsed,
+  email,
 }: MenuItemProps) {
+  const button = (
+    <Button className={styles.anchor} onClick={onClick}>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img className={styles.icon} src={iconSrc} alt={`${text} icon`} />{" "}
+      {!isCollapsed && text}{" "}
+    </Button>
+  );
+
   return (
     <li className={classNames(styles.listItem, className)}>
-      <Button className={styles.anchor} onClick={onClick}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img className={styles.icon} src={iconSrc} alt={`${text} icon`} />{" "}
-        {!isCollapsed && text}{" "}
-      </Button>
+      {email ? (
+        <a
+          href={`mailto:${email}?Support Request: `}
+          style={{ color: "inherit", textDecoration: "inherit" }}
+        >
+          {button}
+        </a>
+      ) : (
+        button
+      )}
     </li>
   );
 }
