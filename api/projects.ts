@@ -1,5 +1,5 @@
 import { axios } from "./axios";
-import type { Project } from "./projects.types";
+import { Project } from "./projects.types";
 
 const ENDPOINT = "/project";
 
