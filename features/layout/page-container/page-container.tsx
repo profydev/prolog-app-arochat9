@@ -26,6 +26,7 @@ export function PageContainer({ children, title, info }: PageContainerProps) {
           <div className={styles.info}>{info}</div>
           {children}
         </div>
+        <div className={styles.footer}>TEST HERE</div>
       </main>
     </div>
   );
