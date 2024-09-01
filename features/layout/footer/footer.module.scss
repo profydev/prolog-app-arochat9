@@ -1,0 +1,69 @@
+@use "@styles/breakpoint";
+@use "@styles/color";
+
+$desktop-footer-height: 60px;
+$mobile-footer-height: 177px;
+
+.footerContainer {
+  height: $mobile-footer-height;
+  background: color.$gray-50;
+  display: flex;
+  padding-left: 12px;
+  padding-right: 12px;
+
+  @media (min-width: breakpoint.$desktop) {
+    align-items: center;
+    height: $desktop-footer-height;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+.footerBar {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px;
+
+  @media (min-width: breakpoint.$desktop) {
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 0;
+  }
+}
+
+.version {
+  color: color.$gray-400;
+  width: 160px;
+  display: flex;
+  justify-content: center;
+  order: 1;
+
+  @media (min-width: breakpoint.$desktop) {
+    justify-content: left;
+    order: -1;
+  }
+}
+
+.linksContainer {
+  display: flex;
+  gap: 24px;
+}
+
+.link {
+  color: color.$gray-500;
+  text-decoration: none;
+}
+
+.logoContainer {
+  width: 33px;
+  display: flex;
+  justify-content: center;
+
+  @media (min-width: breakpoint.$desktop) {
+    justify-content: right;
+    width: 160px;
+  }
+}
