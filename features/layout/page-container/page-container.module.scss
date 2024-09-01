@@ -3,6 +3,7 @@
 @use "@styles/space";
 @use "@styles/breakpoint";
 @use "@styles/misc";
+@use "../footer/footer.module.scss" as footer;
 
 .container {
   display: flex;
@@ -16,24 +17,23 @@
 
 .main {
   flex: 1;
-
-  // display: flex;
-  // flex-direction: column;
 }
 
-$footer-height: 50px;
+// $desktop-footer-height: 60px;
+// $mobile-footer-height: 177px;
 
 .contentContainer {
-  // flex: 1;
-  min-height: calc(
-    100vh - 2 * space.$s8 - misc.$header-height - $footer-height
+  height: calc(
+    100vh - 2 * space.$s8 - misc.$header-height - footer.$mobile-footer-height
   );
   margin-top: misc.$header-height;
   padding: space.$s8 space.$s3;
   background: white;
 
   @media (min-width: breakpoint.$desktop) {
-    min-height: calc(100vh - space.$s3 - 2 * space.$s8 - $footer-height);
+    height: calc(
+      100vh - space.$s3 - 2 * space.$s8 - footer.$desktop-footer-height
+    );
     margin-top: space.$s3;
     padding: space.$s8;
     border-top-left-radius: space.$s10;
@@ -42,10 +42,14 @@ $footer-height: 50px;
   overflow: auto;
 }
 
-.footer {
-  height: $footer-height;
-  background-color: red;
-}
+// .footer {
+//   height: $mobile-footer-height;
+//   background-color: red;
+
+//   @media (min-width: breakpoint.$desktop) {
+//     height: $desktop-footer-height;
+//   }
+// }
 
 .title {
   margin: space.$s0 space.$s0 space.$s1;
