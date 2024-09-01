@@ -3,7 +3,7 @@ import { version } from "package.json";
 
 export const Footer = () => {
   return (
-    <div className={styles.footerContainer}>
+    <footer className={styles.footerContainer}>
       <div className={styles.footerBar}>
         <div className={styles.version}>
           <span>Version: {version}</span>
@@ -27,6 +27,6 @@ export const Footer = () => {
           <img src="/icons/logo-small.svg" alt="prolog-logo" />
         </div>
       </div>
-    </div>
+    </footer>
   );
 };

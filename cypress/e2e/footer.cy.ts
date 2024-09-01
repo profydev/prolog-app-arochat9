@@ -11,48 +11,29 @@ describe("Footer Bar", () => {
     });
 
     it("has correct height on desktop", () => {
-      const desktopFooterHeight = "60px"; // As defined in your CSS variables
-      cy.get(".footerContainer").should(
-        "have.css",
-        "height",
-        desktopFooterHeight,
-      );
+      const desktopFooterHeight = "60px";
+      cy.get("footer").should("have.css", "height", desktopFooterHeight);
     });
 
     it("has all necessary links", () => {
       // check that each link leads to the correct page
-      cy.get(".footerContainer")
-        .contains("Docs")
-        .should("have.attr", "href", "#");
+      cy.get("footer").contains("Docs").should("have.attr", "href", "#");
 
-      cy.get(".footerContainer")
-        .contains("API")
-        .should("have.attr", "href", "#");
+      cy.get("footer").contains("API").should("have.attr", "href", "#");
 
-      cy.get(".footerContainer")
-        .contains("Help")
-        .should("have.attr", "href", "#");
+      cy.get("footer").contains("Help").should("have.attr", "href", "#");
 
-      cy.get(".footerContainer")
-        .contains("Community")
-        .should("have.attr", "href", "#");
+      cy.get("footer").contains("Community").should("have.attr", "href", "#");
     });
 
     it("displays the correct version information", () => {
-      cy.get(".version").should("contain", `Version: ${version}`);
+      cy.get("footer").contains(`Version: ${version}`).should("exist");
     });
 
     it("displays the logo", () => {
-      cy.get(".logoContainer img").should(
-        "have.attr",
-        "src",
-        "/icons/logo-small.svg",
-      );
-    });
-
-    it("has correct height on desktop", () => {
-      const desktopFooterHeight = "60px"; // As defined in your CSS variables
-      cy.get(".footerBar").should("have.css", "height", desktopFooterHeight);
+      cy.get("footer")
+        .find("img")
+        .should("have.attr", "src", "/icons/logo-small.svg");
     });
   });
 
@@ -63,11 +44,7 @@ describe("Footer Bar", () => {
 
     it("has correct height on mobile", () => {
       const mobileFooterHeight = "177px"; // As defined in your CSS variables
-      cy.get(".footerContainer").should(
-        "have.css",
-        "height",
-        mobileFooterHeight,
-      );
+      cy.get("footer").should("have.css", "height", mobileFooterHeight);
     });
   });
 });
